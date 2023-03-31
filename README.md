@@ -1,46 +1,92 @@
-# Getting Started with Create React App
+# SolariumMovies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição do Projeto:
+Este projeto é um aplicativo web para busca e visualização de informações sobre filmes, séries e pessoas envolvidas na produção. As funcionalidades incluem a busca por filmes, séries e pessoas, obter informações sobre lançamentos, avaliações de qualidade e classificações, além de conhecer todo o elenco e seus trabalhos. O site permite alternar entre temas dark e light, e permite salvar filmes, séries e pessoas nos favoritos. O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-## Available Scripts
+- React
+- React Router
+- TypeScript
+- Axios
+- Context API
+- Styled Components
+- Responsividade
 
-In the project directory, you can run:
+## Processo:
+O objetivo principal do projeto foi praticar o desenvolvimento de aplicações web utilizando React e suas ferramentas, além de trabalhar com TypeScript e Context API para gerenciamento de estado. Também foi utilizado Axios para fazer requisições às APIs de filmes e séries, e Styled Components para estilização dos componentes.
 
-### `npm start`
+## Funcionalidades:
+Buscar filmes, séries e pessoas pelo título.
+Obter informações sobre lançamentos, avaliações de qualidade e classificações.
+Conhecer todo o elenco e seus trabalhos.
+Alternar entre temas dark e light.
+Salvar filmes, séries e pessoas nos favoritos.
+Responsividade para dispositivos móveis.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## APIs utilizadas:
+O aplicativo utiliza as seguintes APIs para obter informações sobre filmes, séries e pessoas:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The Movie Database API (TMDB): https://www.themoviedatabase.com/documentation/api
 
-### `npm test`
+OMDB API: https://www.omdbapi.com/
+Instalação e execução:
+Para instalar e executar o projeto em seu computador, siga os passos abaixo:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como usar
+- Clone o repositório
+- Instale as dependências com npm install
+- Inicie o servidor com npm start
+- Acesse http://localhost:3000 no seu navegador
+- Pelo site site 
+- Crie um arquivo .env na raiz do projeto e adicione suas chaves de API para TMDB e OMDB:
 
-### `npm run build`
+## Contribuições:
+Contribuições são bem-vindas! Se você tiver alguma ideia para melhorar o projeto ou adicionar novas funcionalidades, sinta-se à vontade para criar uma issue ou enviar um pull request.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshoot
+![](/public//screenshot.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*************************************************************************************
+# SolariumMovies
 
-### `npm run eject`
+## Project Description:
+This is a web application for searching and viewing information about movies, series, and people involved in production. The features include searching for movies, series, and people, getting information about releases, quality ratings and classifications, as well as getting to know the entire cast and their works. The website allows switching between dark and light themes, and allows saving movies, series, and people to favorites. The project was developed using the following technologies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+React
+React Router
+TypeScript
+Axios
+Context API
+Styled Components
+Responsiveness
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Process:
+The main goal of the project was to practice web application development using React and its tools, as well as working with TypeScript and Context API for state management. Axios was also used to make requests to movie and series APIs, and Styled Components were used for component styling.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features:
+Search for movies, series, and people by title.
+Get information about releases, quality ratings, and classifications.
+Get to know the entire cast and their works.
+Switch between dark and light themes.
+Save movies, series, and people to favorites.
+Responsiveness for mobile devices.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Used APIs:
+The application uses the following APIs to obtain information about movies, series, and people:
 
-## Learn More
+The Movie Database API (TMDB): https://www.themoviedatabase.com/documentation/api
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+OMDB API: https://www.omdbapi.com/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Installation and Execution:
+To install and run the project on your computer, follow the steps below:
+
+## How to use
+Clone the repository
+Install the dependencies with npm install
+Start the server with npm start
+Access http://localhost:3000 in your browser
+Through the website
+Create a .env file at the root of the project and add your API keys for TMDB and OMDB:
+Contributions:
+Contributions are welcome! If you have any ideas to improve the project or add new features, feel free to create an issue or submit a pull request.

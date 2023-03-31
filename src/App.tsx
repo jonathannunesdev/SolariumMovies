@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { Routes } from "./routes/Routes";
 
-function App() {
+import { NavbarHeader } from "./components/header";
+import { NavbarFooter } from "./components/footer";
+import { Context } from "./contexts/Context";
+
+import * as C from "./App.styles";
+
+const App = () => {
+  const { state } = useContext(Context);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <C.Container theme={state.theme.status}>
+      <C.Header>
+        <NavbarHeader />
+      </C.Header>
+      <Routes />
+      <C.Footer theme={state.theme.status}>
+        <NavbarFooter />
+      </C.Footer>
+    </C.Container>
   );
-}
+};
 
 export default App;
