@@ -5,7 +5,6 @@ const http = axios.create({
     baseURL: 'https://api.themoviedb.org/3/'
 });
 
-
 const apiKey = process.env.REACT_APP_API_KEY;
 
 export const Api = {
