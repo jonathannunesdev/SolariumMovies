@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import * as C from "./styles";
 import { Theme } from "../theme";
@@ -8,9 +8,12 @@ import { Context } from "../../contexts/Context";
 export const NavbarHeader = () => {
   const { state, dispatch } = useContext(Context);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT_USER" });
+    navigate('/')
   };
 
   const toggleMenu = () => {
