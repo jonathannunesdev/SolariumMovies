@@ -29,7 +29,6 @@ export const userReducer = (state: UserType, action: ActionType): UserType => {
           isFormSubmitted: true,
         },
       };
-      case 'LOGOUT_USER':
         case 'LOGOUT_USER':
           return {
             ...state,

@@ -10,7 +10,6 @@ import { Loading } from "../loading";
 import { MovieType, SerieType, TrailerType,} from "../../types/SearchType";
 import { PosterItem } from "../posterItem";
 import { ScrollToTopButton } from "../ScrollButton";
-import { useParams } from "react-router-dom";
 import imagemIndisponivel from "../../assets/notfoundimg/kid2.jpg";
 import { Context } from "../../contexts/Context";
 

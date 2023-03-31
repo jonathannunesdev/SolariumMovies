@@ -5,7 +5,7 @@ import { BackButton } from "../../components/backButton";
 import { Container, ContainerBackdrop, ContainerArea } from "./styles";
 import { Context } from "../../contexts/Context";
 import { convertDate } from "../helpers";
-import { CreditType, MovieType, PersonType } from "../../types/SearchType";
+import { CreditType, PersonType } from "../../types/SearchType";
 import { Loading } from "../../components/loading";
 import imagemIndisponivel from "../../assets/notfoundimg/kid2.jpg";
 import { PosterItem } from "../posterItem";

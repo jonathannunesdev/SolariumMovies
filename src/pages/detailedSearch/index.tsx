@@ -32,7 +32,6 @@ export const DetailedSearch = () => {
     } else {
       fetchPersonDetails();
     }
-    fetchRating();
   }, [id, media_type]);
 
   const fetchMovieDetails = async () => {
@@ -101,12 +100,7 @@ export const DetailedSearch = () => {
     setCredits(combinedCreditsData);
   };
 
-  const fetchRating = async () => {
-    const popularMovies = await Api.getPopularMovies();
-    if (popularMovies.results.length > 0) {
-      setMaxRating(popularMovies.results[0].popularity);
-    }
-  };
+
 
   return (
     <>

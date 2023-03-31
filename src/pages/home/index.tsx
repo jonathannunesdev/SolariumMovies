@@ -12,7 +12,7 @@ import * as C from "./styles";
 export const Home = () => {
   const { state } = useContext(Context);
   const signUpRef = useRef<HTMLDivElement>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
 
   const scrollToSignUp = () => {
     signUpRef.current?.scrollIntoView({ behavior: "smooth" });

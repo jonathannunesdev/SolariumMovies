@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, } from "react";
 import { Container } from "./styles";
 import { FontAwesomeIconStyled } from "./styles";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
