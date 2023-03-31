@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../../contexts/Context";
 import { BackButton } from "../../components/backButton";
 
-import kid from "../../assets/notfoundimg/kid3.jpg";
 import { Container, ContainerBackdrop } from "./styles";
 
 export const NoResults = () => {
@@ -16,7 +15,7 @@ export const NoResults = () => {
   };
 
   return (
-    <ContainerBackdrop backdrop={kid}>
+    <ContainerBackdrop>
       <Container>
         <div className="info">
           <div className="info2">

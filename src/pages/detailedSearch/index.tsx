@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback  } from "react";
 import { useParams } from "react-router-dom";
 
 import { Api } from "../../apis/Api";
@@ -15,26 +15,15 @@ export const DetailedSearch = () => {
     undefined
   );
   const [credits, setCredits] = useState<CreditType>();
-  const [maxRating, setMaxRating] = useState<number>(0);
-  const [details, setDetails] = useState<
-    MovieType | SerieType | PersonType | null
-  >(null);
+  const [details, setDetails] = useState<MovieType | SerieType | PersonType | null>(null);
   const [movieCast, setMovieCast] = useState([]);
   const [serieCast, setSerieCast] = useState([]);
 
   const { id, media_type } = useParams<{ id: string; media_type: string }>();
 
-  useEffect(() => {
-    if (media_type === "tv") {
-      fetchSerieDetails();
-    } else if (media_type === "movie") {
-      fetchMovieDetails();
-    } else {
-      fetchPersonDetails();
-    }
-  }, [id, media_type]);
 
-  const fetchMovieDetails = async () => {
+
+  const fetchMovieDetails = useCallback(async () => {
     const movieCastData = await Api.getMovieCast(Number(id));
     const movieData = await Api.getMovieDetails(Number(id));
     const movieTrailers = await Api.getMovieTrailers(Number(id));
@@ -49,9 +38,9 @@ export const DetailedSearch = () => {
     } else {
       setWatchTrailer(undefined);
     }
-  };
+  }, [id]);
 
-  const fetchSerieDetails = async () => {
+  const fetchSerieDetails = useCallback(async () => {
     const serieCastData = await Api.getSerieCast(Number(id));
     const serieData = await Api.getSeriesDetails(Number(id));
     const serieTrailers = await Api.getSeriesTrailers(Number(id));
@@ -66,14 +55,13 @@ export const DetailedSearch = () => {
     } else {
       setWatchTrailer(undefined);
     }
-  };
+  }, [id]);
 
-  const fetchPersonDetails = async () => {
+  const fetchPersonDetails = useCallback(async () => {
     const personData = await Api.getPersonDetails(Number(id));
     setDetails(personData);
     await fetchCombinedCreditsPerson(Number(id));
-  };
-
+  }, [id]);
   const fetchCombinedCreditsPerson = async (personId: number) => {
     const moviesCreditsPromise = Api.getMoviesCreditsPerson(personId);
     const seriesCreditsPromise = Api.getSeriesCreditsPerson(personId);
@@ -100,7 +88,15 @@ export const DetailedSearch = () => {
     setCredits(combinedCreditsData);
   };
 
-
+  useEffect(() => {
+    if (media_type === "tv") {
+      fetchSerieDetails();
+    } else if (media_type === "movie") {
+      fetchMovieDetails();
+    } else {
+      fetchPersonDetails();
+    }
+  }, [id, media_type, fetchMovieDetails, fetchPersonDetails, fetchSerieDetails]);
 
   return (
     <>

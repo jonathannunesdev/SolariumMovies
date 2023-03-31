@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { themeType } from "../../reducers/themeReducer";
-import kid from "../../assets/notfoundimg/kid3.jpg";
+import kid3 from "../../assets/notfoundimg/kid3.jpg";
 
-export const ContainerBackdrop = styled.div<{ backdrop: string }>`
+export const ContainerBackdrop = styled.div`
   width: 100vw;
   margin-top: 10vh;
   display: flex;
@@ -17,7 +17,7 @@ export const ContainerBackdrop = styled.div<{ backdrop: string }>`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: ${({ backdrop }) => `url(${backdrop})`};
+    background-image: url(${kid3});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
