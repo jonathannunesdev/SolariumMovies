@@ -36,7 +36,7 @@ Para instalar e executar o projeto em seu computador, siga os passos abaixo:
 - Instale as dependências com npm install
 - Inicie o servidor com npm start
 - Acesse http://localhost:3000 no seu navegador
-- Pelo site site 
+- Pelo site site https://solariummovies.netlify.app/
 - Crie um arquivo .env na raiz do projeto e adicione suas chaves de API para TMDB e OMDB:
 
 ## Contribuições:
@@ -86,7 +86,7 @@ Clone the repository
 Install the dependencies with npm install
 Start the server with npm start
 Access http://localhost:3000 in your browser
-Through the website
+Through the website https://solariummovies.netlify.app/
 Create a .env file at the root of the project and add your API keys for TMDB and OMDB:
 Contributions:
 Contributions are welcome! If you have any ideas to improve the project or add new features, feel free to create an issue or submit a pull request.
