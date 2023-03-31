@@ -117,8 +117,8 @@ export const NavList = styled.ul<{ menuOpen: boolean; theme: themeType }>`
     position: fixed;
     right: 10%;
     top: 80px;
-    transform: ${(props) => (props.menuOpen ? "translateX(-100%)" : "translateX(0)")};
-    opacity: ${(props) => (props.menuOpen ? "0" : "0.98")};
+    transform: ${(props) => (props.menuOpen ? "translateX(0)" : "translateX(-100%)")};
+    opacity: ${(props) => (props.menuOpen ? "0.98" : "0")};
     font-size: 20px;
     padding: 10px;
     z-index: 999;
