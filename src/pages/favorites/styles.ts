@@ -11,6 +11,27 @@ export const ContainerArea = styled.div<{ theme: themeType }>`
     margin: auto;
     padding: 10px 20px;
 
+    .container--favorites{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+     
+      .button--clearAll{
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #ddd;
+        color: #222;  
+        border: 1px solid #FFF;
+        cursor: pointer;
+        font-family: 'Ubuntu', sans-serif;
+        
+        &:hover{
+          opacity: .7;
+        }
+      }
+    }
     .info{
         text-align: center;
         transition: all 0.3s ease-in-out;

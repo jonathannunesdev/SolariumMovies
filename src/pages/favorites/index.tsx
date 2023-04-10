@@ -4,6 +4,8 @@ import { Context } from "../../contexts/Context";
 import { PosterItem } from "../../components/posterItem";
 import { ScrollToTopButton } from "../../components/ScrollButton";
 import { Container, ContainerArea } from "./styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const Favorites = () => {
   const { state, dispatch } = useContext(Context);
@@ -28,12 +30,15 @@ export const Favorites = () => {
           </span>
         </div>
         {favorites.length > 0 && (
-          <div className="favorites--area">
-            {favorites.map((item, index) => (
-              <PosterItem key={index} data={item} showDeleteButton />
-            ))}
-            <button onClick={clearFavorites}>Apagar todos os favoritos</button>
+            <div className="container--favorites">
+                <button className="button--clearAll" onClick={clearFavorites}>Limpar Favoritos &nbsp; <FontAwesomeIcon icon={faTrash} /></button>
+                <div className="favorites--area">
+                {favorites.map((item, index) => (
+                  <PosterItem key={index} data={item} showDeleteButton />
+                ))}
+            </div>
           </div>
+         
         )}
       </ContainerArea>
       <ScrollToTopButton />

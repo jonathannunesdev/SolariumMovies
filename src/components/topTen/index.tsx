@@ -39,7 +39,7 @@ export const TopTenCarousel = ({ items }: TopTenCarouselProps) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false
+          arrows: false 
           
         },
       },
