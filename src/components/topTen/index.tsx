@@ -17,6 +17,7 @@ export const TopTenCarousel = ({ items }: TopTenCarouselProps) => {
     slidesToScroll: 4,
     autoplay: true,
     autoplaySpeed: 4000,
+    arrows: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -30,6 +31,7 @@ export const TopTenCarousel = ({ items }: TopTenCarouselProps) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: false
         },
       },
       {
@@ -37,6 +39,8 @@ export const TopTenCarousel = ({ items }: TopTenCarouselProps) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          arrows: false
+          
         },
       },
     ],
@@ -47,11 +51,13 @@ export const TopTenCarousel = ({ items }: TopTenCarouselProps) => {
       {items.map((item, index) => (
         <Link key={item.id} to={`/detailed/${item.media_type}/${item.id}`}>
           <Banner>
-            <BannerImage
-              src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-              alt={item.title}
-            />
-            <h1>{index + 1}</h1>
+              <BannerImage
+                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                alt={item.title}
+              />
+            <div className="number">
+              <h1>{index + 1}</h1>
+            </div>
           </Banner>
         </Link>
       ))}

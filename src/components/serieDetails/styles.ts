@@ -44,6 +44,10 @@ export const ContainerArea = styled.div`
     min-height: 90vh;
     margin: auto;
     padding: 0 30px;
+
+    .area--backbutton{
+      padding: 20px 0px;
+    }
 `;
 
 export const Container = styled.div<{ theme: themeType }>`
@@ -90,10 +94,24 @@ export const Container = styled.div<{ theme: themeType }>`
   }
  
   .favorite{
-    @media (max-width: 820px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+
+    .rating{
       display: flex;
-      flex-direction: column-reverse;
-      align-items: space-around;
+      align-items: center;
+      flex-direction: column;
+
+
+      strong{
+        color: ${(props) =>
+          props.theme === "light" ? "#0098DA;" : "#AEDAEA;"}
+        transition: all 0.3s ease-in-out;
+        font-size: 20px;
+      }
     }
   }
 
@@ -115,20 +133,6 @@ export const Container = styled.div<{ theme: themeType }>`
       @media (min-width: 1024px) {
         .tv--trailer {
           width: 100%;
-        }
-      }
-      
-
-      .rating{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        strong{
-          color: ${(props) =>
-            props.theme === "light" ? "#0098DA;" : "#AEDAEA;"}
-          transition: all 0.3s ease-in-out;
-          margin-bottom: 10px;
-          font-size: 20px;
         }
       }
 

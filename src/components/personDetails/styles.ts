@@ -35,6 +35,10 @@ export const ContainerArea = styled.div`
     min-height: 90vh;
     margin: auto;
     padding: 0 30px;
+
+    .area--backbutton{
+      padding: 20px 0;
+    }
 `;
 
 export const Container = styled.div<{theme: themeType}>`

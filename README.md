@@ -1,7 +1,7 @@
 # SolariumMovies
 
 ## Descrição do Projeto:
-Este projeto é um aplicativo web para busca e visualização de informações sobre filmes, séries e pessoas envolvidas na produção. As funcionalidades incluem a busca por filmes, séries e pessoas, obter informações sobre lançamentos, avaliações de qualidade e classificações, além de conhecer todo o elenco e seus trabalhos. O site permite alternar entre temas dark e light, e permite salvar filmes, séries e pessoas nos favoritos. O projeto foi desenvolvido utilizando as seguintes tecnologias:
+Este é um projeto autoral de um aplicativo web para busca e visualização de informações sobre filmes, séries e pessoas envolvidas na produção. As funcionalidades incluem a busca por filmes, séries e pessoas, obter informações sobre lançamentos, avaliações de qualidade e classificações, além de conhecer todo o elenco e seus trabalhos. O site permite alternar entre temas dark e light, e permite salvar filmes, séries e pessoas nos favoritos. O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - React
 - React Router
@@ -50,7 +50,7 @@ Contribuições são bem-vindas! Se você tiver alguma ideia para melhorar o pro
 # SolariumMovies
 
 ## Project Description:
-This is a web application for searching and viewing information about movies, series, and people involved in production. The features include searching for movies, series, and people, getting information about releases, quality ratings and classifications, as well as getting to know the entire cast and their works. The website allows switching between dark and light themes, and allows saving movies, series, and people to favorites. The project was developed using the following technologies:
+This is an authorial project for a web application to search and view information about movies, series and people involved in the production. Features include searching for movies, series and people, getting information about releases, quality assessments and ratings, as well as getting to know the entire cast and their work. The site allows you to switch between dark and light themes, and allows you to save movies, series and people in favorites. The project was developed using the following technologies:
 
 React
 React Router

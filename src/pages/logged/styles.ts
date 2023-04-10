@@ -24,6 +24,7 @@ export const ContainerArea = styled.div<{ theme: themeType }>`
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
+  min-height: 75vh;
 
     .top {
       text-align: center;
@@ -60,8 +61,7 @@ export const ContainerArea = styled.div<{ theme: themeType }>`
   }
 
   .bottom {
-    position: relative;
-      margin: 40px 0;
+      position: relative;
       display: flex;
       align-items: center;
       width: 100%;

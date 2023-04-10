@@ -80,5 +80,5 @@ export const BannerContent = styled.div`
   bottom: 0;
   z-index: 2;
   overflow-x: hidden;
-  margin-top: 10vh;
+  margin-bottom: 10vh;
 `;

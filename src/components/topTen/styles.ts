@@ -16,14 +16,21 @@ export const Banner = styled.div`
     color: rgba(255, 255, 255, 0.3);
 
     @media (max-width: 480px) {
-      top: 10%;
+      top: 0%;
       right: 0;
-      font-size: 200px;
+      font-size: 250px;
       z-index: 999;
     }
     
     @media (max-width: 395px) {
-      top: -6%;
+      top: -40%;
+      right: 10%;
+      font-size: 250px;
+      z-index: 999;
+    }
+    
+    @media (max-width: 300px) {
+      top: -65%;
       right: 10%;
       font-size: 200px;
       z-index: 999;

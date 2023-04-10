@@ -57,6 +57,9 @@ export const PersonDetails = ({ personData, creditData }: Props) => {
   return personData && creditData ? (
     <ContainerBackdrop backdropUrl={imageUrl}>
       <ContainerArea>
+      <div className='area--backbutton'>
+            <BackButton onClick={handleGoBack} />
+          </div>
         <Container theme={state.theme.status}>
           <div className="details">
             <div className="details--left">
@@ -91,11 +94,7 @@ export const PersonDetails = ({ personData, creditData }: Props) => {
               </span>
             </div>
             <div className="favorite">
-              <BackButton onClick={handleGoBack} />
-              <FavoritesButton
-                onclick={handleFavoriteClick}
-                isFavorited={isFavorited}
-              />
+                <FavoritesButton onclick={handleFavoriteClick} isFavorited={isFavorited} />
             </div>
           </div>
           <div className="cast">

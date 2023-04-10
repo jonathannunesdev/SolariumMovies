@@ -4,9 +4,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   color: #ecb733;
-  margin: 50px 0;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
   
   button {
     outline: none;

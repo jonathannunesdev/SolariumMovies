@@ -94,9 +94,7 @@ export const Logged = () => {
                 bem vindo!
               </h1>
               <span>
-                <strong>Confira nosso Top 10 Séries e Filmes </strong>e embarque
-                nessa aventura cinematográfica!
-                <strong></strong>
+                <strong>Confira o nosso Top 10 Séries e Filmes! </strong>
               </span>
             </div>
             <TopTenCarousel items={topTenItems} />

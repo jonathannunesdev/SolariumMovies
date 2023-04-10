@@ -65,6 +65,9 @@ export const MovieDetails = ({movieData, trailerData, castData}:Props ) => {
     movieData ? (
       <ContainerBackdrop backdropUrl={imageUrl}>
         <ContainerArea>
+          <div className='area--backbutton'>
+            <BackButton onClick={handleGoBack} />
+          </div>
           <Container theme={state.theme.status}>
             <div className="details">
               <div className="details--left">
@@ -93,12 +96,7 @@ export const MovieDetails = ({movieData, trailerData, castData}:Props ) => {
                         />
                       </div>
                     )}
-                    <div className="rating">
-                      <strong>Rating</strong>
-                      <CircularProgress
-                        percentage={parseFloat(percentageRating.toFixed(2))}
-                      />
-                    </div>
+                  
                   </div>
                   <div className="details--right">
                     <h2>{movieData.title}</h2>
@@ -141,12 +139,17 @@ export const MovieDetails = ({movieData, trailerData, castData}:Props ) => {
                     </span>
                   </div>
                   <div className="favorite">
-                    <BackButton onClick={handleGoBack} />
-                    <FavoritesButton onclick={handleFavoriteClick} isFavorited={isFavorited} />
+                    <div className="rating">
+                        <strong>Avaliação</strong>
+                        <CircularProgress
+                          percentage={Math.round(parseFloat(percentageRating.toFixed(2)))}
+                        />
+                      </div>
+                      <FavoritesButton onclick={handleFavoriteClick} isFavorited={isFavorited} />
                   </div>
                 </div>
                 <div className="cast">
-                  <strong>Elenco:</strong>
+                  <strong>Elenco Principal:</strong>
                     <div className="cast--area">
                       {castData && castData.length > 0 ? (
                         castData.map((item, index) => {
