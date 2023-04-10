@@ -6,14 +6,16 @@ export const Banner = styled.div`
   box-sizing: border-box;
   position: relative;
   padding: 20px;
-  -webkit-font-smoothing: antialiased;
-  h1{
+
+  .number h1 {
     position: absolute;
     top: 0;
     right: 0;
     font-size: 165px;
     color: rgba(255, 255, 255, 0.3);
     -webkit-text-stroke: 1px transparent;
+    text-shadow: none;
+    z-index: 1;
 
     @media (max-width: 480px) {
       top: 0%;
