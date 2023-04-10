@@ -2,6 +2,11 @@ import styled from "styled-components";
 import { themeType } from "../../reducers/themeReducer";
 
 export const Container = styled.div<{ theme: themeType }>`
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
     flex:1;
    
     form{
@@ -24,8 +29,11 @@ export const Container = styled.div<{ theme: themeType }>`
         background-color: ${(props) =>
           props.theme === "light" ? "#AEDAEA;" : "#333;"}
         transition: all 0.3s ease-in-out;
-        font-size: 20px;
-  
+        font-size: 20px;    
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
 
         &::placeholder{
             color: #FFF;
