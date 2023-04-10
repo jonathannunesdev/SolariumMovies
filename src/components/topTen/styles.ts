@@ -12,9 +12,8 @@ export const Banner = styled.div`
     top: 0;
     right: 0;
     font-size: 165px;
-    color: rgba(255, 255, 255, 0.3);
-    -webkit-text-stroke: 1px transparent;
-    text-shadow: none;
+    color: #ffffff;
+    mix-blend-mode: soft-light;
     z-index: 1;
 
     @media (max-width: 480px) {
@@ -23,14 +22,14 @@ export const Banner = styled.div`
       font-size: 250px;
       z-index: 999;
     }
-    
+
     @media (max-width: 395px) {
       top: -40%;
       right: 10%;
       font-size: 250px;
       z-index: 999;
     }
-    
+
     @media (max-width: 300px) {
       top: -65%;
       right: 10%;
@@ -39,7 +38,6 @@ export const Banner = styled.div`
     }
   }
 }
- 
 `;
 
 export const BannerImage = styled.img`
