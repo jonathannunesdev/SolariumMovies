@@ -22,6 +22,9 @@ export const NavbarHeader = () => {
 
   return (
     <C.Header theme={state.theme.status}>
+      <C.MenuToggle onClick={toggleMenu} theme={state.theme.status}>
+              <C.MenuIcon menuOpen={menuOpen} theme={state.theme.status} />
+        </C.MenuToggle>
       <C.HeaderContainer theme={state.theme.status}>
         <Link to="/">
           <h1>
@@ -31,14 +34,16 @@ export const NavbarHeader = () => {
         <C.Nav>
           <C.NavList theme={state.theme.status} menuOpen={menuOpen}>
             <C.NavListItem theme={state.theme.status} onClick={toggleMenu}>
-              <Link to="/">Busca</Link>
+              <Link to="/">{state.user.user?.isFormSubmitted ? 'Busca' : 'Home'}</Link>
             </C.NavListItem>
 
-            <C.NavListItem theme={state.theme.status}  onClick={toggleMenu}>
-              <Link to="/favorites">
-                <strong>Favoritos</strong>
-              </Link>
-            </C.NavListItem>
+            {state.user.user?.isFormSubmitted && (
+              <C.NavListItem theme={state.theme.status} onClick={toggleMenu}>
+                <Link to="/favorites">
+                  <strong>Favoritos</strong>
+                </Link>
+              </C.NavListItem>
+            )}
 
             <C.NavListItemBox
               theme={state.theme.status}
@@ -53,9 +58,7 @@ export const NavbarHeader = () => {
             </C.NavListItemBox>
             <Theme onClick={toggleMenu} />
           </C.NavList>
-          <C.MenuToggle onClick={toggleMenu} theme={state.theme.status}>
-            <C.MenuIcon menuOpen={menuOpen} theme={state.theme.status} />
-          </C.MenuToggle>
+     
         </C.Nav>
       </C.HeaderContainer>
     </C.Header>

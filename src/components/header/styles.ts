@@ -9,13 +9,16 @@ export const Header = styled.header<{ theme: themeType }>`
     left: 0;
     width: 100%;
     height: 10vh;
-    z-index: 1000;
     background-color: ${(props) =>
       props.theme === "light" ? "#FFF;" : "#222;"}
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s ease-in-out;
-    padding: 5px;
-    
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s ease-in-out;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+
     a{
         text-decoration: none;
         color: #AAA;
@@ -26,18 +29,18 @@ export const Header = styled.header<{ theme: themeType }>`
 export const HeaderContainer = styled.div<{ theme: themeType }>`
     max-width: 1000px;
     margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 30px;
-   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     h1{
         color: #AEDAEA;
         &:hover{
             cursor: pointer;
 
         }
-        @media (max-width: 280px) {
+        @media (max-width: 700px) {
           font-size: 20px;
         }
     }
@@ -54,14 +57,15 @@ export const Nav = styled.nav`
 
 export const MenuIcon = styled.span<{ menuOpen: boolean; theme: themeType }>`
   display: block;
-  width: 30px;
+  width: 25px;
   height: 3px;
   background-color: ${(props) => (props.menuOpen ? "#0098DA" : "#AEDAEA")};
   transition: all 0.3s ease-in-out;
   position: absolute;
-  right: 15px;
+  left: 25;
   top: 50%;
   transform: translateY(-50%);  
+  
 
   &::before,
   &::after {
@@ -93,6 +97,7 @@ export const MenuToggle = styled.button<{ theme: themeType }>`
   cursor: pointer;
   position: relative;
 
+
   @media (max-width: 700px) {
     display: block;
   }
@@ -110,18 +115,18 @@ export const NavList = styled.ul<{ menuOpen: boolean; theme: themeType }>`
     display: flex;
     flex-direction: column;
     background-color: ${(props) =>
-      props.theme === "light" ? "#0098DA;" : "#222;"}
+      props.theme === "light" ? "#FFF;" : "#222;"}
     transition: all 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     width: 90vw;
-    height: 90vh;
+    height: 100vh;
     position: fixed;
     right: 10%;
-    top: 80px;
+    top: 0px;
     transform: ${(props) => (props.menuOpen ? "translateX(0)" : "translateX(-100%)")};
     opacity: ${(props) => (props.menuOpen ? "0.98" : "0")};
     font-size: 20px;
     padding: 10px;
-    z-index: 999;
+    z-index: -2;
   }
 
 `;
@@ -151,7 +156,7 @@ export const NavListItem = styled.li<{ theme: themeType }>`
 export const NavListItemBox = styled.li<{ theme: themeType }>`
   text-align: center;
   padding: 7px;
-  color: #fff;
+  color: #FFF;
   cursor: pointer;
   background-color: ${(props) =>
     props.theme === "light" ? "#AEDAEA;" : "#0098DA;"}
