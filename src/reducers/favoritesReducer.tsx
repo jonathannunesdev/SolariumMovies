@@ -37,8 +37,13 @@ export const favoritesReducer = (state: FavoritesType, action: ActionType): Favo
           (item) => item.id !== action.payload.id
         ),
       };
-    default:
-      return state;
-  }
-};
+      case "CLEAR_FAVORITES":
+        return {
+          ...state,
+          listFavorites: [],
+        };
+      default:
+        return state;
+    }
+  };
 

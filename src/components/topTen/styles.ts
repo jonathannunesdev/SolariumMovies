@@ -11,7 +11,7 @@ export const Banner = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 180px;
+    font-size: 165px;
 
     color: rgba(255, 255, 255, 0.3);
 

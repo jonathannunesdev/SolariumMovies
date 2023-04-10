@@ -31,9 +31,9 @@ export const HeaderContainer = styled.div<{ theme: themeType }>`
     margin: auto;
     padding: 0 30px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
+    flex: 1;
     h1{
         color: #AEDAEA;
         &:hover{
@@ -48,6 +48,9 @@ export const HeaderContainer = styled.div<{ theme: themeType }>`
     h1 b{
         color: ${(props) => (props.theme === "light" ? "#000;" : "#FFF;")}
         transition: all 0.3s ease-in-out;
+    }
+    @media (max-width: 700px) {
+      justify-content: center;
     }
 `;
 
@@ -155,19 +158,19 @@ export const NavListItem = styled.li<{ theme: themeType }>`
 
 export const NavListItemBox = styled.li<{ theme: themeType }>`
   text-align: center;
-  padding: 7px;
   color: #FFF;
   cursor: pointer;
   background-color: ${(props) =>
     props.theme === "light" ? "#AEDAEA;" : "#0098DA;"}
-  transition: all 0.3s ease-in-out;
-  border-radius: 20px;
-  width: 80px;
-  height: 20px;
-  margin-right: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+    width: 100px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px;
+    margin-right: 50px;
 
   &:hover {
     opacity: 0.8;
