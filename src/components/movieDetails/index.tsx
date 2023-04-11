@@ -103,6 +103,13 @@ export const MovieDetails = ({ movieData, trailerData, castData }: Props) => {
               {movieData.tagline ? <span>{movieData.tagline}</span> : ""} <br />
               <span>
                 <span>
+                  Filme de {getYear(movieData.release_date)} (
+                  {movieData.original_language}) |{" "}
+                  {movieData.runtime ? `${movieData.runtime} min` : ""}
+                </span>
+                <br />
+                <br />
+                <span>
                   {movieData.certification ? (
                     <strong className="classification">
                       {movieData.certification}
@@ -110,9 +117,6 @@ export const MovieDetails = ({ movieData, trailerData, castData }: Props) => {
                   ) : (
                     ""
                   )}{" "}
-                  ({movieData.original_language}) Filme de{" "}
-                  {getYear(movieData.release_date)} |{" "}
-                  {movieData.runtime ? `${movieData.runtime} minutos` : ""}
                 </span>
               </span>
               <br />
@@ -133,7 +137,7 @@ export const MovieDetails = ({ movieData, trailerData, castData }: Props) => {
               </span>
               {movieData.budget && movieData.revenue ? (
                 <>
-                  <strong>Orcamento: </strong>
+                  <strong>Orçamento: </strong>
                   <span>U$ {movieData.budget.toLocaleString()}</span>
                   <strong>Receita: </strong>
                   <span>U$ {movieData.revenue.toLocaleString()}</span>
