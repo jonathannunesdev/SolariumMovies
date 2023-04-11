@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { themeType } from '../../reducers/themeReducer';
+import styled from "styled-components";
+import { themeType } from "../../reducers/themeReducer";
 
 type ContainerBackdropProps = {
   backdropUrl: string;
-}
+};
 
 export const ContainerBackdrop = styled.div<ContainerBackdropProps>`
   width: 100vw;
@@ -12,7 +12,7 @@ export const ContainerBackdrop = styled.div<ContainerBackdropProps>`
   align-items: center;
   padding: 20px 0px;
   position: relative;
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -24,27 +24,28 @@ export const ContainerBackdrop = styled.div<ContainerBackdropProps>`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right right;
-    opacity: 0.5; 
-    filter: blur(2px); 
+    opacity: 0.5;
+    filter: blur(2px);
   }
 `;
 
 export const ContainerArea = styled.div`
-    z-index: 999;
-    max-width: 1000px;
-    min-height: 90vh;
-    margin: auto;
-    padding: 0 30px;
+  z-index: 999;
+  max-width: 1000px;
+  min-height: 90vh;
+  margin: auto;
+  padding: 0 30px;
 
-    .area--backbutton{
-      padding: 20px 0;
-    }
+  .area--backbutton {
+    padding: 20px 0;
+  }
 `;
 
-export const Container = styled.div<{theme: themeType}>`
+export const Container = styled.div<{ theme: themeType }>`
   display: flex;
   align-items: center;
-  background-color: ${props => props.theme === 'light' ? '#AEDAEA;' : '#222;'}
+  background-color: ${(props) =>
+    props.theme === "light" ? "#AEDAEA;" : "#222;"}
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.12);
   flex-direction: column;
   
@@ -52,7 +53,7 @@ export const Container = styled.div<{theme: themeType}>`
  
 
   strong{
-    color: ${props => props.theme === 'light' ? '#0098DA;' : '#AEDAEA;'}
+    color: ${(props) => (props.theme === "light" ? "#0098DA;" : "#AEDAEA;")}
     transition: all 0.3s ease-in-out;
     margin-bottom: 10px;
     font-size: 20px;
@@ -106,7 +107,6 @@ export const Container = styled.div<{theme: themeType}>`
     }
 
     
-
     .details--left{
       flex:1;
       display: flex;
@@ -114,14 +114,14 @@ export const Container = styled.div<{theme: themeType}>`
       align-items: center;
       padding-bottom: 20px;
 
-
       .rating{
         display: flex;
         align-items: center;
         flex-direction: column;
 
         strong{
-          color: ${props => props.theme === 'light' ? '#0098DA;' : '#AEDAEA;'}
+          color: ${(props) =>
+            props.theme === "light" ? "#0098DA;" : "#AEDAEA;"}
           transition: all 0.3s ease-in-out;
           margin-bottom: 10px;
           font-size: 20px;
@@ -161,9 +161,26 @@ export const Container = styled.div<{theme: themeType}>`
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.12);
           transition: all 0.3s ease-in-out;
           object-fit: cover;
-          margin-bottom: 30px;
+          margin-bottom: 20px;
+          }
+
+          .social_networks{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            a{
+              color: #888;
+              font-size: 34px;
+              cursor: pointer;
+              margin-right: 15px;
+              &:hover{
+                opacity: .7;
+              }
+            }
           }
       }
+
+ 
     }
   
    
@@ -176,25 +193,42 @@ export const Container = styled.div<{theme: themeType}>`
       flex-direction: column;
       flex-wrap: wrap;
       overflow: hidden;
-      text-align: justify;
+
+      
+      
+      .biography{
+        text-align: justify;
+      }
+
+      .also--known--as{
+        margin: 0;
+        padding: 0;
+        li{
+          list-style:none;
+          margin-bottom: 5px;
+          
+        }
+      }
 
       strong{
-        color: ${props => props.theme === 'light' ? '#0098DA;' : '#AEDAEA;'}
+        color: ${(props) => (props.theme === "light" ? "#0098DA;" : "#AEDAEA;")}
         transition: all 0.3s ease-in-out;
         padding: 10px 0;
+        margin: 0;
       }
 
       h2{
-        color: ${props => props.theme === 'light' ? '#555;' : '#FFF;'}
+        color: ${(props) => (props.theme === "light" ? "#555;" : "#FFF;")}
         transition: all 0.3s ease-in-out;
-        margin: none;
+        margin-bottom: 10px;
         padding: none;
+      }
+
+      span{
+        margin-bottom: 10px;
       }
      }
 
 
   }
 `;
-
-
-

@@ -79,10 +79,11 @@ export const Api = {
         return seriesData;
     },
      // Busca os detalhes de uma pessoa pelo ID.
-    getPersonDetails: async (personId: number) => {
-        const req = await http.get(`/person/${personId}?api_key=${apiKey}&language=pt-BR`);
-        const personData = { ...req.data, media_type: 'person' };
-        return personData;
+     getPersonDetails: async (personId: number) => {
+      const req = await http.get(`/person/${personId}?api_key=${apiKey}&append_to_response=external_ids&language=pt-BR`);
+      const personData = { ...req.data, media_type: 'person' };
+      
+      return personData;
     },
      // Busca trailers de um filme pelo ID      
     getMovieTrailers: async (movieId: number) => {

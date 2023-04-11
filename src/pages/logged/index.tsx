@@ -91,7 +91,7 @@ export const Logged = () => {
               <h1>
                 Olá,{" "}
                 <strong>{state.user.user?.name?.toLocaleUpperCase()}</strong>{" "}
-                bem vindo!
+                bem vindo(a)!
               </h1>
               <span>
                 <strong>Confira o nosso Top 10 Séries e Filmes! </strong>

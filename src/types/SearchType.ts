@@ -129,6 +129,12 @@ export type PersonType = {
   homepage: string | null;
   imdb_id: string | null;
   place_of_birth: string | null;
+  external_ids?: {
+    facebook_id?: string;
+    instagram_id?: string;
+    tiktok_id?: string;
+    twitter_id?: string;
+  }
 };
 
 //type de credito

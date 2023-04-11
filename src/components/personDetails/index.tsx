@@ -4,13 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { BackButton } from "../../components/backButton";
 import { Container, ContainerBackdrop, ContainerArea } from "./styles";
 import { Context } from "../../contexts/Context";
-import { convertDate } from "../helpers";
+import { convertDate, calculateAge } from "../helpers";
 import { CreditType, PersonType } from "../../types/SearchType";
 import { Loading } from "../../components/loading";
 import imagemIndisponivel from "../../assets/notfoundimg/kid2.jpg";
 import { PosterItem } from "../posterItem";
 import { ScrollToTopButton } from "../ScrollButton";
 import { FavoritesButton } from "../favoritesButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faCross, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faFacebook, faTwitter, faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 type Props = {
   personData: PersonType;
@@ -71,34 +74,53 @@ export const PersonDetails = ({ personData, creditData }: Props) => {
                     e.currentTarget.src = imagemIndisponivel;
                   }}
                 />
+                  <div className="social_networks">
+                  {personData.external_ids?.instagram_id ? <a href={`https://www.instagram.com/${personData.external_ids.instagram_id}/`} target="_blank"><FontAwesomeIcon icon={faInstagram}/></a> : ''}
+                  {personData.external_ids?.facebook_id ? <a href={`https://www.facebook.com/${personData.external_ids.facebook_id}/`} target="_blank"><FontAwesomeIcon icon={faFacebook}/></a> : ''}
+                  {personData.external_ids?.tiktok_id ? <a href={`https://www.tiktok.com/@${personData.external_ids.tiktok_id}/`} target="_blank"><FontAwesomeIcon icon={faTiktok}/></a> : ''}
+                  {personData.external_ids?.twitter_id ? <a href={`https://twitter.com/${personData.external_ids.twitter_id}/`} target="_blank"><FontAwesomeIcon icon={faTwitter}/></a> : ''}
+                  {personData.homepage ? <a href={personData.homepage} target="_blank"><FontAwesomeIcon icon={faLink}/></a> : ''}
               </div>
             </div>
+              </div>
+        
             <div className="details--right">
               <h2>{personData.name}</h2>
-              {personData.known_for_department
-                ? personData.known_for_department
-                : ""}
+              {personData.gender === 1 ? 'Atriz' : 'Ator'}
               <span>{personData.original_name}</span> <br />
               <span>
-                {personData.birthday ? convertDate(personData.birthday) : ""} |{" "}
-                {personData.deathday ? convertDate(personData.deathday) : ""}{" "}
+                {personData.birthday ? <span><FontAwesomeIcon icon={faStar}/> {convertDate(personData.birthday)} | {calculateAge(personData.birthday)} Anos</span> : ''}
               </span>
-              <span>{personData.place_of_birth}</span>
-              <strong>Biografia: </strong>
+              <span>{personData.gender === 1 ? 'Nascida em ' : 'Nascido em ' }{personData.place_of_birth}</span>
               <span>
+                {personData.deathday !== null ? <span><FontAwesomeIcon icon={faCross}/> {convertDate(personData.deathday)}</span> : ''}
+              </span>
+              <strong>Gênero:</strong>
+              <span>{personData.gender === 1 ? 'Feminino' : 'Masculino'}</span>
+              <strong>Biografia: </strong>
+              <span className="biography">
                 {personData.biography ? personData.biography : noInfoMessage}
               </span>
-              <strong>Popularidade: </strong>
-              <span>
-                {personData.popularity ? personData.popularity : noInfoMessage}
-              </span>
+              {personData.also_known_as ? (
+                <>
+                {personData.gender === 2 ? (
+                   <strong>Conhecido também por:</strong>
+                ): 
+                  <strong>Conhecida também por:</strong>
+                }
+                    <ul className="also--known--as">{personData.also_known_as.map((item, index) => (
+                      <li key={index}>{index + 1}- {item}</li>
+                    ))}</ul>
+                </>
+                  ) : ''}
+
             </div>
             <div className="favorite">
                 <FavoritesButton onclick={handleFavoriteClick} isFavorited={isFavorited} />
             </div>
           </div>
           <div className="cast">
-            <strong>Conhecido por:</strong>
+            <strong>Seus Principais Trabalhos:</strong>
             <div className="knownFor--area">
               {creditData && creditData.cast && creditData.cast.length > 0 ? (
                 creditData.cast.map((item, index) => (
