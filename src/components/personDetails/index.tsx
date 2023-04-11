@@ -75,10 +75,10 @@ export const PersonDetails = ({ personData, creditData }: Props) => {
                   }}
                 />
                   <div className="social_networks">
-                  {personData.external_ids?.instagram_id ? <a href={`https://www.instagram.com/${personData.external_ids.instagram_id}/`} target="_blank"><FontAwesomeIcon icon={faInstagram}/></a> : ''}
-                  {personData.external_ids?.facebook_id ? <a href={`https://www.facebook.com/${personData.external_ids.facebook_id}/`} target="_blank"><FontAwesomeIcon icon={faFacebook}/></a> : ''}
-                  {personData.external_ids?.tiktok_id ? <a href={`https://www.tiktok.com/@${personData.external_ids.tiktok_id}/`} target="_blank"><FontAwesomeIcon icon={faTiktok}/></a> : ''}
-                  {personData.external_ids?.twitter_id ? <a href={`https://twitter.com/${personData.external_ids.twitter_id}/`} target="_blank"><FontAwesomeIcon icon={faTwitter}/></a> : ''}
+                  {personData.external_ids?.instagram_id ? <a href={`https://www.instagram.com/${personData.external_ids.instagram_id}/`} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram}/></a> : ''}
+                  {personData.external_ids?.facebook_id ? <a href={`https://www.facebook.com/${personData.external_ids.facebook_id}/`} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook}/></a> : ''}
+                  {personData.external_ids?.tiktok_id ? <a href={`https://www.tiktok.com/@${personData.external_ids.tiktok_id}/`} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTiktok}/></a> : ''}
+                  {personData.external_ids?.twitter_id ? <a href={`https://twitter.com/${personData.external_ids.twitter_id}/`} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter}/></a> : ''}
                   {personData.homepage ? <a href={personData.homepage} target="_blank"><FontAwesomeIcon icon={faLink}/></a> : ''}
               </div>
             </div>
