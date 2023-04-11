@@ -68,9 +68,7 @@ export const Api = {
         const req = await http.get(`/movie/${movieId}?api_key=${apiKey}&language=pt-BR`);
         const certification = await getMovieCertification(movieId);
         const watchProviders = await getMovieWatchProviders(movieId);
-        const movieData = { ...req.data, media_type: 'movie', certification, watchProviders }; 
-        console.log(movieData);
-              
+        const movieData = { ...req.data, media_type: 'movie', certification, watchProviders };               
         return movieData;
     },
     // Busca os detalhes de uma série pelo ID
@@ -78,9 +76,7 @@ export const Api = {
         const req = await http.get(`/tv/${seriesId}?api_key=${apiKey}&language=pt-BR`);
         const certification = await getSeriesCertification(seriesId);
         const watchProviders = await getSeriesWatchProviders(seriesId);
-        const seriesData = { ...req.data, media_type: 'tv', certification, watchProviders };
-        console.log(seriesData);
-        
+        const seriesData = { ...req.data, media_type: 'tv', certification, watchProviders };        
         return seriesData;
     },
      // Busca os detalhes de uma pessoa pelo ID.
