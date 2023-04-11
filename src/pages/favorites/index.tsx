@@ -31,14 +31,13 @@ export const Favorites = () => {
         </div>
         {favorites.length > 0 && (
             <div className="container--favorites">
-                <button className="button--clearAll" onClick={clearFavorites}>Limpar Favoritos &nbsp; <FontAwesomeIcon icon={faTrash} /></button>
                 <div className="favorites--area">
                 {favorites.map((item, index) => (
                   <PosterItem key={index} data={item} showDeleteButton />
                 ))}
             </div>
+            <button className="button--clearAll" onClick={clearFavorites}>Limpar Favoritos &nbsp; <FontAwesomeIcon icon={faTrash} /></button>
           </div>
-         
         )}
       </ContainerArea>
       <ScrollToTopButton />

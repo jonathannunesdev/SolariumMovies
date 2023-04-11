@@ -208,20 +208,57 @@ export const Container = styled.div<{ theme: themeType }>`
       flex-wrap: wrap;
       overflow: hidden;
       text-align: justify;
+
+      .classification{
+        border: 2px solid #888;
+        padding: 5px;
+        border-radius: 2px;
+      }
       
-      
+      .providers--area{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        
+        li img{
+          width: 80px;
+        }
+
+        @media (max-width: 912px) {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+
+          li img{
+            width: 50px;
+          }
+        }
+
+        @media (max-width: 300px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+      }
+
       strong{
         color: ${(props) => (props.theme === "light" ? "#0098DA;" : "#AEDAEA;")}
         transition: all 0.3s ease-in-out;
         padding: 10px 0;
+        margin: 0;
       }
 
       h2{
         color: ${(props) => (props.theme === "light" ? "#555;" : "#FFF;")}
         transition: all 0.3s ease-in-out;
-        margin: none;
+        margin-bottom: 5px;
         padding: none;
       }
+
+      span{
+        margin-bottom: 10px;
+      }
+
      }
 
 

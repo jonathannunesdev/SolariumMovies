@@ -18,15 +18,16 @@ export const ContainerArea = styled.div<{ theme: themeType }>`
       align-items: center;
      
       .button--clearAll{
-        margin-bottom: 30px;
-        padding: 10px 20px;
+        margin: 30px 0;
+        padding:  20px;
         border-radius: 10px;
-        background-color: #ddd;
-        color: #222;  
+        background-color: RED;
+        color: #FFF;  
         border: 1px solid #FFF;
         cursor: pointer;
         font-family: 'Ubuntu', sans-serif;
-        
+        border: 0;
+
         &:hover{
           opacity: .7;
         }

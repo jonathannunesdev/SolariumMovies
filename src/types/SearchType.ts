@@ -35,6 +35,22 @@ export type SerieType = {
   type: string;
   original_name: string;
   media_type: string;
+  certification: string;
+  budget?: number;
+  revenue?: number;
+  tagline: string;
+  watchProviders:{
+    results: {
+      BR?: {
+        flatrate?: {
+          display_priority?: number;
+          logo_path?: string;
+          provider_id?: number;
+          provider_name?: string;
+        }[];
+      };
+    };
+  };
 };
 
 // Type de Filme
@@ -75,7 +91,24 @@ export type MovieType = {
   genre_ids?: number[];
   order?: number;
   video?: boolean;
+  certification: string;
+  budget: number;
+  revenue: number;
+  tagline: string;
+  watchProviders:{
+    results: {
+      BR?: {
+        flatrate?: {
+          display_priority?: number;
+          logo_path?: string;
+          provider_id?: number;
+          provider_name?: string;
+        }[];
+      };
+    };
+  };
 };
+
 
 //type de pessoa
 export type PersonType = {

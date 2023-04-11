@@ -101,10 +101,12 @@ export const SerieDetails = ({ serieData, trailerData, castData }: Props) => {
               </div>
               <div className="details--right">
                 <h2>{serieData.name || serieData.original_name}</h2>
+                {serieData.tagline ? (<span>{serieData.tagline}</span>) : ('') } <br />
                 <span>
-                  {serieData.original_language} |{" "}
-                  {getYear(serieData.first_air_date)}
-                </span>{" "}
+                  <span>{serieData.certification  ? (
+                    <strong className='classification'>{serieData.certification}</strong> 
+                  ) : ('') } ({serieData.original_language}) {getYear(serieData.first_air_date)}</span>
+                </span>
                 <br />
                 <strong>Sinopse: </strong>
                 <span>
@@ -136,7 +138,7 @@ export const SerieDetails = ({ serieData, trailerData, castData }: Props) => {
                 </span>
                 <strong>Status:</strong>
                 <span>
-                  {serieData.status || serieData.in_production
+                  {serieData.in_production
                     ? "Em produção"
                     : "Finalizada"}
                 </span>
@@ -146,7 +148,27 @@ export const SerieDetails = ({ serieData, trailerData, castData }: Props) => {
                 <span>{serieData.number_of_seasons}</span>
                 <strong>Episódios:</strong>
                 <span>{serieData.number_of_episodes}</span>
-              </div>
+              
+              {serieData.budget && serieData.revenue ? (
+                <>
+                  <strong>Orcamento: </strong>
+                  <span>U$ {(serieData.budget).toLocaleString()}</span>
+                  <strong>Receita: </strong>
+                  <span>U$ {(serieData.revenue).toLocaleString()}</span>
+                  </>
+              ): ('')}
+              {serieData.watchProviders.results.BR?.flatrate ? (
+                <>
+                  <strong>Disponível em:</strong>
+                  <ul className='providers--area'>
+                    {serieData.watchProviders.results.BR &&  serieData?.watchProviders.results.BR?.flatrate?.map((item, index) => (
+                      <li key={index}><img  src={`https://image.tmdb.org/t/p/original${item.logo_path}`} alt={item.provider_name} /></li>
+                      ))}
+                  </ul>
+                </>
+              ): ('')}
+             
+            </div>       
               <div className="favorite">
                     <div className="rating">
                         <strong>Avaliação</strong>
@@ -158,7 +180,7 @@ export const SerieDetails = ({ serieData, trailerData, castData }: Props) => {
                   </div>
             </div>
             <div className="cast">
-              <strong>Elenco Principal:</strong>
+              <strong>Elenco Principal::</strong>
               <div className="cast--area">
                 {castData && castData.length > 0 ? (
                   castData.map((item, index) => {
