@@ -79,7 +79,7 @@ export const PersonDetails = ({ personData, creditData }: Props) => {
                   {personData.external_ids?.facebook_id ? <a href={`https://www.facebook.com/${personData.external_ids.facebook_id}/`} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook}/></a> : ''}
                   {personData.external_ids?.tiktok_id ? <a href={`https://www.tiktok.com/@${personData.external_ids.tiktok_id}/`} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTiktok}/></a> : ''}
                   {personData.external_ids?.twitter_id ? <a href={`https://twitter.com/${personData.external_ids.twitter_id}/`} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter}/></a> : ''}
-                  {personData.homepage ? <a href={personData.homepage} target="_blank"><FontAwesomeIcon icon={faLink}/></a> : ''}
+                  {personData.homepage ? <a href={personData.homepage} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLink}/></a> : ''}
               </div>
             </div>
               </div>
