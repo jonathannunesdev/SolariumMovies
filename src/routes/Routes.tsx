@@ -18,7 +18,7 @@ export const Routes = () => {
     { path: "/logged", element: <Logged /> },
     { path: "/searchlist", element: <SearchList /> },
     { path: "/noResults", element: <NoResults /> },
-    { path: "/resetPassword", element: <ResetPassword /> },    
+    { path: "/reset-password", element: <ResetPassword /> },    
     { path: "/privacy-policy", element: <PrivacyPolicy/>},
     { path: "/detailed/:media_type/:id", element: <DetailedSearch /> },
   ]);

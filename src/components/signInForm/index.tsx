@@ -106,7 +106,7 @@ export const SignInForm = () => {
   
     try {
       const actionCodeSettings = {
-        url: "https://solariummovies.netlify.app/resetPassword",
+        url: "https://solariummovies.netlify.app/reset-password",
         handleCodeInApp: true,
       };
       await sendPasswordResetEmail(auth, email, actionCodeSettings);
