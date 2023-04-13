@@ -28,7 +28,7 @@ export const Favorites = () => {
       <ContainerArea theme={state.theme.status}>
         <div className="info">
           <h1>
-            Olá! <strong>{state.user.user?.name?.toUpperCase()}</strong>{" "}
+            Olá! <strong> {state.user.user?.name?.split(" ")[0]?.toLocaleUpperCase()}</strong>{" "}
           </h1>
           <span>
             {favorites.length > 0
