@@ -63,13 +63,15 @@ export const Logged = () => {
         dispatch({
           type: "LOGOUT_USER",
         });
+        navigate('/login'); 
       }
     });
   
     return () => {
       unsubscribe();
     };
-  }, [dispatch]);
+  }, [dispatch, navigate]);
+  
 
   const fetchTopTenItems = async () => {
     const topTenSeries = await Api.getLatestMoviesAndSeries();
