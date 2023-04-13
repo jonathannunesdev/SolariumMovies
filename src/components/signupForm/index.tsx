@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../contexts/Context";
 import { Container } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

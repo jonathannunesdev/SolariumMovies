@@ -59,13 +59,13 @@ export const ResetPassword = () => {
         return;
       }
   
-      // Verificar o código de ação apenas se o emailFromActionCode for vazio
+      // Verifica o código de ação apenas se o emailFromActionCode for vazio
       if (!emailFromActionCode) {
         const email = await verifyPasswordResetCode(auth, actionCode);
         setEmailFromActionCode(email);
       }
   
-      // Redefinir a senha usando o actionCode e o e-mail recuperado
+      // Redefine a senha usando o actionCode e o e-mail recuperado
       await confirmPasswordReset(auth, actionCode, password);
   
       // Verifica se o usuário atual existe antes de atualizar a senha
