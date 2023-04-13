@@ -65,26 +65,30 @@ export const ResetPassword = () => {
         setEmailFromActionCode(email);
       }
   
-      // Redefine a senha usando o actionCode e o e-mail recuperado
-      await confirmPasswordReset(auth, actionCode, password);
+      // Adiciona uma verificação adicional antes de chamar as funções
+      if (password === confirmPassword && validatePassword(password)) {
+        // Redefine a senha usando o actionCode e o e-mail recuperado
+        await confirmPasswordReset(auth, actionCode, password);
   
-      // Verifica se o usuário atual existe antes de atualizar a senha
-      if (auth.currentUser) {
-        await updatePassword(auth.currentUser, password);
+        // Verifica se o usuário atual existe antes de atualizar a senha
+        if (auth.currentUser) {
+          await updatePassword(auth.currentUser, password);
+        }
+  
+        setError("");
+        setPassword("");
+        setConfirmPassword("");
+  
+        // Redireciona para a página de login
+        window.location.href = "/login";
       }
-  
-      setError("");
-      setPassword("");
-      setConfirmPassword("");
-  
-      // Redireciona para a página de login
-      window.location.href = "/login";
     } catch (error: unknown) {
       if (error instanceof Error) {
         setError('O link para redefinir a senha expirou. Por favor, solicite um novo link.');
       }
     }
   };
+  
   
 
   return (
