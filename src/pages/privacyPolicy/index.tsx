@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
 import { Container } from "./styles";
 
 export const PrivacyPolicy = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+},[])
+
+
   return (
     <Container>
       <div>

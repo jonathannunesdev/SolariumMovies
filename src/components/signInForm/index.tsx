@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import googleBrand from "../../assets/socialNetwork/sml-google-logo.svg";
+import facebookBrand from "../../assets/socialNetwork/facebook-3-2.svg"
 
 
 export const SignInForm = () => {
@@ -126,9 +127,39 @@ export const SignInForm = () => {
   
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
+    
   
     try {
       const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+  
+      dispatch({
+        type: "SAVE_USER_DATA",
+        payload: {
+          user: {
+            name: user.displayName,
+            lastName: "",
+            email: user.email,
+            password: "",
+            isFormSubmitted: true,
+          },
+        },
+      });
+  
+      navigate("/logged");
+    } catch (error: unknown) {
+      if (error instanceof FirebaseError) {
+        console.error(error);
+      }
+    }
+  };
+
+  const handleFacebookSignIn = async () => {
+    const facebookProvider = new FacebookAuthProvider();
+    
+  
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
       const user = result.user;
   
       dispatch({
@@ -214,6 +245,9 @@ export const SignInForm = () => {
       <div className="social-login">
         <div className="button--google" onClick={handleGoogleSignIn}>
           <img src={googleBrand} alt="" />
+        </div>
+        <div className="button--facebook" onClick={handleFacebookSignIn}>
+          <img src={facebookBrand} alt="" />
         </div>
       </div>
     </Container>

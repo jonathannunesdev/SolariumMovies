@@ -4,9 +4,11 @@ import { Container } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import googleBrand from "../../assets/socialNetwork/sml-google-logo.svg";
+import facebookBrand from "../../assets/socialNetwork/facebook-3-2.svg"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+
 
 export const SignUpForm = () => {
   const [name, setName] = useState("");
@@ -20,6 +22,7 @@ export const SignUpForm = () => {
 
   const { state, dispatch } = useContext(Context);
   const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
@@ -29,6 +32,20 @@ export const SignUpForm = () => {
       .catch((error) => {
         setPasswordError(
           "Erro ao autenticar usuário com o Google. Tente novamente!"
+        );
+      });
+  };
+
+  const handleFacebookSignIn = () => {
+    signInWithPopup(auth, facebookProvider)
+      .then((result) => {
+        window.location.href = "/logged";
+      })
+      .catch((error) => {
+        console.log(error);
+        
+        setPasswordError(
+          "Erro ao autenticar usuário com o Facebook. Tente novamente!"
         );
       });
   };
@@ -181,6 +198,9 @@ export const SignUpForm = () => {
       <div className="social-login">
         <div className="button--google" onClick={handleGoogleSignIn}>
           <img src={googleBrand} alt="" />
+        </div>
+        <div className="button--facebook" onClick={handleFacebookSignIn}>
+          <img src={facebookBrand} alt="" />
         </div>
       </div>
     </Container>

@@ -89,8 +89,9 @@ export const Container = styled.div<{ theme: themeType }>`
         display: flex;
         justify-content: center;
 
-        .button--google{
-          display: flex;;
+        .button--google,
+        .button--facebook img{
+          display: flex;
           justify-content: center;
           align-items: center;
           margin-top: 20px;
@@ -99,7 +100,9 @@ export const Container = styled.div<{ theme: themeType }>`
           background-color: #FFF;
           border-radius: 50%;
           cursor: pointer;
-
+          margin-right: 15px;
+          border: 1px solid #AEDAEA;
+          
           &:hover{
             opacity: .7;
           }
