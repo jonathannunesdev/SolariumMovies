@@ -105,6 +105,10 @@ export const Container = styled.div<{ theme: themeType }>`
       }
     }
 
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
   }
   .social-login{
     display: flex;
@@ -125,7 +129,7 @@ export const Container = styled.div<{ theme: themeType }>`
         opacity: .7;
       }
     }
-  }
+  
 
   @media (max-width: 550px) {
     h1{
@@ -136,7 +140,5 @@ export const Container = styled.div<{ theme: themeType }>`
     }
   }
 
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
+
 `;
