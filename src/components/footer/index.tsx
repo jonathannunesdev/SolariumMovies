@@ -4,6 +4,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import * as C from './styles';
 import { FontAwesomeIconStyled } from './styles';
 import { Context } from '../../contexts/Context';
+import { Link } from 'react-router-dom';
 
 
 
@@ -22,6 +23,7 @@ export const NavbarFooter = () => {
         <C.SocialNetwork>
             <C.NavListItem theme={state.theme.status}><a href="https://www.linkedin.com/in/jonathan-nunes-6328a4b6/" target="_blank" rel="noreferrer"><FontAwesomeIconStyled icon={faLinkedin} /></a></C.NavListItem>
             <C.NavListItem theme={state.theme.status}><a href="https://github.com/jonathannunesdev" target="_blank" rel="noreferrer"><FontAwesomeIconStyled icon={faGithub} /></a></C.NavListItem>
+            <C.NavListItem ><Link to='/privacy-policy'>Política de Privacidade</Link></C.NavListItem>
         </C.SocialNetwork>
       </C.Nav>
     </C.Footer>

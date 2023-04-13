@@ -8,7 +8,26 @@ export const Container = styled.div<{ theme: themeType }>`
     box-sizing: border-box;
   }
     flex:1;
-   
+   h1{
+
+   }
+    .password-container {
+      position: relative;
+  
+      .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 15px;
+        font-size: 20px;
+        color: #fff;
+        transform: translateY(-50%);
+      }
+    }
+
     form{
         display: flex;
         flex-direction: column;
@@ -41,7 +60,7 @@ export const Container = styled.div<{ theme: themeType }>`
         
     }
 
-    form button{
+    .button--signup{
         margin-top: 40px;
         padding: 20px;
         border-radius: 10px;
@@ -58,7 +77,7 @@ export const Container = styled.div<{ theme: themeType }>`
         }
     }
     
-    .error-message {
+    .error-message {c
         color: #F00;
         font-size: 14px;
         margin-top: -10px;
@@ -66,6 +85,33 @@ export const Container = styled.div<{ theme: themeType }>`
         margin-left: 15px;
       }
     
+      .social-login{
+        display: flex;
+        justify-content: center;
 
+        .button--google{
+          display: flex;;
+          justify-content: center;
+          align-items: center;
+          margin-top: 20px;
+          width: 50px;
+          height: 50px;
+          background-color: #FFF;
+          border-radius: 50%;
+          cursor: pointer;
+
+          &:hover{
+            opacity: .7;
+          }
+        }
+      }
     
+      @media (max-width: 550px) {
+        h1{
+          font-size: 20px;
+        }
+        .button--signup{
+          margin-top: 20px;
+        }
+      }
 `;

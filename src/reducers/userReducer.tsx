@@ -1,5 +1,4 @@
-import { ActionType } from "../types/ActionType";
-
+import { ActionType } from "../types/ActionType"; 
 
 export type UserData = {
   name: string;

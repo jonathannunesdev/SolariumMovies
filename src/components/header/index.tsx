@@ -10,10 +10,9 @@ export const NavbarHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT_USER" });
-    navigate('/')
+    navigate("/login");
   };
 
   const toggleMenu = () => {
@@ -23,8 +22,8 @@ export const NavbarHeader = () => {
   return (
     <C.Header theme={state.theme.status}>
       <C.MenuToggle onClick={toggleMenu} theme={state.theme.status}>
-              <C.MenuIcon menuOpen={menuOpen} theme={state.theme.status} />
-        </C.MenuToggle>
+        <C.MenuIcon menuOpen={menuOpen} theme={state.theme.status} />
+      </C.MenuToggle>
       <C.HeaderContainer theme={state.theme.status}>
         <Link to="/">
           <h1>
@@ -34,7 +33,7 @@ export const NavbarHeader = () => {
         <C.Nav>
           <C.NavList theme={state.theme.status} menuOpen={menuOpen}>
             <C.NavListItem theme={state.theme.status} onClick={toggleMenu}>
-              <Link to="/">{state.user.user?.isFormSubmitted ? 'Busca' : 'Home'}</Link>
+              <Link to="/">{state.user.user?.isFormSubmitted ? "Busca" : "Home"}</Link>
             </C.NavListItem>
 
             {state.user.user?.isFormSubmitted && (
@@ -54,11 +53,14 @@ export const NavbarHeader = () => {
                 toggleMenu();
               }}
             >
-              {state.user.user?.isFormSubmitted ? "Logout" : "Login"}
+              {state.user.user?.isFormSubmitted ? (
+                "Logout"
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
             </C.NavListItemBox>
             <Theme onClick={toggleMenu} />
           </C.NavList>
-     
         </C.Nav>
       </C.HeaderContainer>
     </C.Header>

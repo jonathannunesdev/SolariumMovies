@@ -20,7 +20,7 @@ export const ArrowDown = styled.div`
   color: #555;
   background-color: #AEDAEA;
   border-radius: 20px;
-  width: 140px;
+  width: 180px;
   height: 45px;
   font-size: 20px;
   cursor: pointer;

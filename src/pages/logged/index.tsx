@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import { Api } from "../../apis/Api";
 import { Context } from "../../contexts/Context";
@@ -41,6 +42,34 @@ export const Logged = () => {
       navigate("/noResults");
     }
   }, [noResults, navigate]);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch({
+          type: "SAVE_USER_DATA",
+          payload: {
+            user: {
+              name: user.displayName,
+              lastName: "",
+              email: user.email,
+              password: "",
+              isFormSubmitted: true,
+            },
+          },
+        });
+      } else {
+        dispatch({
+          type: "LOGOUT_USER",
+        });
+      }
+    });
+  
+    return () => {
+      unsubscribe();
+    };
+  }, [dispatch]);
 
   const fetchTopTenItems = async () => {
     const topTenSeries = await Api.getLatestMoviesAndSeries();
@@ -88,11 +117,13 @@ export const Logged = () => {
         ) : (
           <>
             <div className="top">
-              <h1>
-                Olá,{" "}
-                <strong>{state.user.user?.name?.toLocaleUpperCase()}</strong>{" "}
-                bem vindo(a)!
-              </h1>
+            <h1>
+              Olá,{" "}
+              <strong>
+                {state.user.user?.name?.split(" ")[0]?.toLocaleUpperCase()}
+              </strong>{" "}
+              bem vindo(a)!
+            </h1>
               <span>
                 <strong>Confira o nosso Top 10 Séries e Filmes! </strong>
               </span>

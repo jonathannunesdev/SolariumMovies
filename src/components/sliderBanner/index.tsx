@@ -61,7 +61,7 @@ export const SliderBanner: React.FC<SliderBannerProps> = ({
                     Filmes e Séries!
                   </Subtitle>
                   <ArrowDown onClick={onArrowDownClick}>
-                    SignUp &nbsp;
+                    Inscreva-se &nbsp;
                     <FontAwesomeIcon icon={faChevronDown} />
                   </ArrowDown>
                 </BannerContent>

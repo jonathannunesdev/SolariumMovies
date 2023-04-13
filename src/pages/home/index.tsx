@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useRef } from "react";
 
 import { Context } from "../../contexts/Context";
@@ -21,6 +21,10 @@ export const Home = () => {
   const isUserLoggedIn = () => {
     return state.user.user && state.user.user.isFormSubmitted;
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[])
 
   return (
     <C.Container>

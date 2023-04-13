@@ -1,6 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../../contexts/Context";
 import { Container } from "./styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import googleBrand from "../../assets/socialNetwork/sml-google-logo.svg";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 export const SignUpForm = () => {
   const [name, setName] = useState("");
@@ -10,7 +16,22 @@ export const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const { state, dispatch } = useContext(Context);
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        window.location.href = "/logged";
+      })
+      .catch((error) => {
+        setPasswordError(
+          "Erro ao autenticar usuário com o Google. Tente novamente!"
+        );
+      });
+  };
 
   const validatePassword = (password: string) => {
     const minLength = 10;
@@ -58,18 +79,31 @@ export const SignUpForm = () => {
       return;
     }
 
-    dispatch({
-      type: "SAVE_USER_DATA",
-      payload: {
-        user: {
-          name: name,
-          lastName: lastName,
-          email: email,
-          password: password,
-          isFormSubmitted: true,
-        },
-      },
-    });
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(async (userCredential) => {
+        console.log("Usuário registrado com sucesso!");
+
+        const user = userCredential.user;
+        await updateProfile(user, {
+          displayName: name,
+        });
+
+        dispatch({
+          type: "SAVE_USER_DATA",
+          payload: {
+            user: {
+              name: name,
+              lastName: lastName,
+              email: email,
+              password: password,
+              isFormSubmitted: true,
+            },
+          },
+        });
+      })
+      .catch((error) => {
+        setPasswordError("Erro ao ao registrar usuário. Tente novamente!");
+      });
   };
 
   return (
@@ -116,18 +150,39 @@ export const SignUpForm = () => {
           />
         </label>
         {emailError && <p className="error-message">{emailError}</p>}
-        <label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Senha"
-            required
-          />
-        </label>
+        <div className="password-container">
+          <label>
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Senha"
+              required
+              className="password"
+            />
+          </label>
+          <button
+            type="button"
+            className="toggle-password"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? (
+              <FontAwesomeIcon icon={faEye} />
+            ) : (
+              <FontAwesomeIcon icon={faEyeSlash} />
+            )}
+          </button>
+        </div>
         {passwordError && <p className="error-message">{passwordError}</p>}
-        <button type="submit">Cadastrar</button>
+        <button className="button--signup" type="submit">
+          Cadastrar
+        </button>
       </form>
+      <div className="social-login">
+        <div className="button--google" onClick={handleGoogleSignIn}>
+          <img src={googleBrand} alt="" />
+        </div>
+      </div>
     </Container>
   );
 };

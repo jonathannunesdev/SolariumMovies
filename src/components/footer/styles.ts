@@ -68,6 +68,7 @@ export const NavListItem = styled.li<{ theme: themeType }>`
 export const SocialNetwork = styled.div`
     list-style: none;
     display: flex;
+    align-items: center;
 
     a{
       color: ${(props) => (props.theme === "light" ? "#000;" : "#FFF;")}
