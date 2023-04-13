@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react"; 
+import { useNavigate } from "react-router-dom"; 
 import { Context } from "../../contexts/Context";
 
 import { PosterItem } from "../../components/posterItem";
@@ -9,8 +10,14 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const Favorites = () => {
   const { state, dispatch } = useContext(Context);
-
+  const nav = useNavigate()
   const favorites = state.favorites.listFavorites;
+
+  useEffect(() => {
+    if (!state.user.user) {
+      nav('/login');
+    }
+  }, [state.user.user, nav]);
 
   const clearFavorites = () => {
     dispatch({ type: "CLEAR_FAVORITES" });
