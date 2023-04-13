@@ -25,7 +25,7 @@ export const Favorites = () => {
           </h1>
           <span>
             {favorites.length > 0
-              ? 'Aqui estão todos os seus favoritos em um só lugar. \n Aproveite!'
+              ? `Aqui estão todos os seus ${state.favorites.listFavorites.length} favoritos em um só lugar. \n Aproveite!`
               : 'Você ainda não adicionou nenhum favorito.'}
           </span>
         </div>

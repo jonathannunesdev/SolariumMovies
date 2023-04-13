@@ -8,42 +8,57 @@ export type FavoritesType = {
 };  
 
 export const favoritesInitialState: FavoritesType = {
-    listFavorites: [],
+  listFavorites: JSON.parse(localStorage.getItem("favorites") || "[]"),
 };
 
-export const favoritesReducer = (state: FavoritesType, action: ActionType): FavoritesType => {
+const saveFavoritesToLocalStorage = (favorites: MediaType[]) => {
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+};
+
+
+export const favoritesReducer = (
+  state: FavoritesType,
+  action: ActionType
+): FavoritesType => {
   switch (action.type) {
     case "ADD_FAVORITE":
-      // Verifica se o item já está na lista de favoritos
       const isAlreadyInFavorites = state.listFavorites.some(
         (item) => item.id === action.payload.listFavorites.id
       );
 
-      // Se o item já estiver na lista, retorna o estado atual
       if (isAlreadyInFavorites) {
         return state;
       }
 
-      // Caso contrário, adiciona o item à lista de favoritos
-      return { 
-        ...state, 
-        listFavorites: 
-        [...state.listFavorites, action.payload.listFavorites] 
-      };
-    case "REMOVE_FAVORITE":
+      const newFavorites = [
+        ...state.listFavorites,
+        action.payload.listFavorites,
+      ];
+      saveFavoritesToLocalStorage(newFavorites);
+
       return {
         ...state,
-        listFavorites: state.listFavorites.filter(
-          (item) => item.id !== action.payload.id
-        ),
+        listFavorites: newFavorites,
       };
-      case "CLEAR_FAVORITES":
-        return {
-          ...state,
-          listFavorites: [],
-        };
-      default:
-        return state;
-    }
-  };
+    case "REMOVE_FAVORITE":
+      const updatedFavorites = state.listFavorites.filter(
+        (item) => item.id !== action.payload.id
+      );
+      saveFavoritesToLocalStorage(updatedFavorites);
+
+      return {
+        ...state,
+        listFavorites: updatedFavorites,
+      };
+    case "CLEAR_FAVORITES":
+      localStorage.removeItem("favorites");
+      return {
+        ...state,
+        listFavorites: [],
+      };
+    default:
+      return state;
+  }
+};
+
 
