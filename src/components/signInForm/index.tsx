@@ -12,6 +12,7 @@ import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "fireb
 import googleBrand from "../../assets/socialNetwork/sml-google-logo.svg";
 import facebookBrand from "../../assets/socialNetwork/facebook-3-2.svg"
 import { isMobile } from "react-device-detect";
+import { useCallback } from 'react';
 
 
 export const SignInForm = () => {
@@ -128,7 +129,7 @@ export const SignInForm = () => {
     }
   };
   
-  const handleGoogleSignIn = async () => {
+  const handleGoogleSignIn = useCallback(async () => {
     const provider = new GoogleAuthProvider();
   
     if (isMobile) {
@@ -158,7 +159,7 @@ export const SignInForm = () => {
         }
       }
     }
-  };
+  }, []);
   
   const handleFacebookSignIn = async () => {
     const facebookProvider = new FacebookAuthProvider();

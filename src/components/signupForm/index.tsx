@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import { isMobile } from "react-device-detect";
-
+import { useCallback } from 'react';
 
 
 export const SignUpForm = () => {
@@ -26,7 +26,7 @@ export const SignUpForm = () => {
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = useCallback(async () => {
     if (isMobile) {
       window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true";
     } else {
@@ -40,7 +40,7 @@ export const SignUpForm = () => {
           );
         });
     }
-  };
+  }, [])
   
   const handleFacebookSignIn = () => {
     signInWithPopup(auth, facebookProvider)
