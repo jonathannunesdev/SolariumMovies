@@ -77,8 +77,8 @@ export const Container = styled.div<{ theme: themeType }>`
         }
     }
     
-    .error-message {c
-        color: #F00;
+    .error-message {
+        color: #F00; !important
         font-size: 14px;
         margin-top: -10px;
         margin-bottom: 10px;

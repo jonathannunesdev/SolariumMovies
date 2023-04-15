@@ -8,6 +8,8 @@ import facebookBrand from "../../assets/socialNetwork/facebook-3-2.svg"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+import { isMobile } from "react-device-detect";
+
 
 
 export const SignUpForm = () => {
@@ -25,17 +27,21 @@ export const SignUpForm = () => {
   const facebookProvider = new FacebookAuthProvider();
 
   const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        window.location.href = "/logged";
-      })
-      .catch((error) => {
-        setPasswordError(
-          "Erro ao autenticar usuário com o Google. Tente novamente!"
-        );
-      });
+    if (isMobile) {
+      window.location.href = "https://solariummovies.netlify.app/login"
+    } else {
+      signInWithPopup(auth, googleProvider)
+        .then((result) => {
+          window.location.href = "/logged";
+        })
+        .catch((error) => {
+          setPasswordError(
+            "Erro ao autenticar usuário com o Google. Tente novamente!"
+          );
+        });
+    }
   };
-
+  
   const handleFacebookSignIn = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
