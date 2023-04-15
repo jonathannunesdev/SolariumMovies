@@ -56,14 +56,7 @@ export const SignInForm = () => {
     return true;
   };
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const autoLogin = urlParams.get("autoLogin");
-
-    if (autoLogin === "true") {
-      handleGoogleSignIn();
-    }
-  }, []);
+ 
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -195,6 +188,16 @@ export const SignInForm = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const autoLogin = urlParams.get("autoLogin");
+  
+    if (autoLogin === "true") {
+      handleGoogleSignIn();
+    }
+  }, [handleGoogleSignIn]);
+  
   
   return (
     <Container theme={state.theme.status}>

@@ -59,11 +59,12 @@ export const SignUpForm = () => {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const autoLogin = urlParams.get("autoLogin");
-
+  
     if (autoLogin === "true") {
       handleGoogleSignIn();
     }
-  }, []);
+  }, [handleGoogleSignIn]);
+  
 
   const validatePassword = (password: string) => {
     const minLength = 10;
