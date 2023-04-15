@@ -11,7 +11,6 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import googleBrand from "../../assets/socialNetwork/sml-google-logo.svg";
 import facebookBrand from "../../assets/socialNetwork/facebook-3-2.svg"
-import { isMobile } from "react-device-detect";
 
 
 export const SignInForm = () => {
@@ -128,36 +127,33 @@ export const SignInForm = () => {
   
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
+    
   
-    if (isMobile) {
-      window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true"
-    } else {
-      try {
-        const result = await signInWithPopup(auth, provider);
-        const user = result.user;
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
   
-        dispatch({
-          type: "SAVE_USER_DATA",
-          payload: {
-            user: {
-              name: user.displayName,
-              lastName: "",
-              email: user.email,
-              password: "",
-              isFormSubmitted: true,
-            },
+      dispatch({
+        type: "SAVE_USER_DATA",
+        payload: {
+          user: {
+            name: user.displayName,
+            lastName: "",
+            email: user.email,
+            password: "",
+            isFormSubmitted: true,
           },
-        });
+        },
+      });
   
-        navigate("/logged");
-      } catch (error: unknown) {
-        if (error instanceof FirebaseError) {
-          console.error(error);
-        }
+      navigate("/logged");
+    } catch (error: unknown) {
+      if (error instanceof FirebaseError) {
+        console.error(error);
       }
     }
   };
-  
+
   const handleFacebookSignIn = async () => {
     const facebookProvider = new FacebookAuthProvider();
     
