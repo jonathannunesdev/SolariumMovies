@@ -12,7 +12,6 @@ import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "fireb
 import googleBrand from "../../assets/socialNetwork/sml-google-logo.svg";
 import facebookBrand from "../../assets/socialNetwork/facebook-3-2.svg"
 import { isMobile } from "react-device-detect";
-import { useCallback } from 'react';
 
 
 export const SignInForm = () => {
@@ -56,8 +55,6 @@ export const SignInForm = () => {
 
     return true;
   };
-
- 
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -129,11 +126,11 @@ export const SignInForm = () => {
     }
   };
   
-  const handleGoogleSignIn = useCallback(async () => {
+  const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
   
     if (isMobile) {
-      window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true";
+      window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true"
     } else {
       try {
         const result = await signInWithPopup(auth, provider);
@@ -159,7 +156,7 @@ export const SignInForm = () => {
         }
       }
     }
-  }, []);
+  };
   
   const handleFacebookSignIn = async () => {
     const facebookProvider = new FacebookAuthProvider();
@@ -189,16 +186,6 @@ export const SignInForm = () => {
       }
     }
   };
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const autoLogin = urlParams.get("autoLogin");
-  
-    if (autoLogin === "true") {
-      handleGoogleSignIn();
-    }
-  }, [handleGoogleSignIn]);
-  
   
   return (
     <Container theme={state.theme.status}>

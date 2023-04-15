@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../contexts/Context";
 import { Container } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import { isMobile } from "react-device-detect";
-import { useCallback } from 'react';
+
 
 
 export const SignUpForm = () => {
@@ -26,22 +26,22 @@ export const SignUpForm = () => {
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
-  const handleGoogleSignIn = useCallback(async () => {
-    if (isMobile) {
-      window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true";
-    } else {
-      signInWithPopup(auth, googleProvider)
-        .then((result) => {
-          window.location.href = "/logged";
-        })
-        .catch((error) => {
-          setPasswordError(
-            "Erro ao autenticar usuário com o Google. Tente novamente!"
-          );
-        });
-    }
-  }, [])
-  
+ const handleGoogleSignIn = () => {
+  if (isMobile) {
+    window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true"
+  } else {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        window.location.href = "/logged";
+      })
+      .catch((error) => {
+        setPasswordError(
+          "Erro ao autenticar usuário com o Google. Tente novamente!"
+        );
+      });
+  }
+};
+
   const handleFacebookSignIn = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
@@ -55,16 +55,6 @@ export const SignUpForm = () => {
         );
       });
   };
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const autoLogin = urlParams.get("autoLogin");
-  
-    if (autoLogin === "true") {
-      handleGoogleSignIn();
-    }
-  }, [handleGoogleSignIn]);
-  
 
   const validatePassword = (password: string) => {
     const minLength = 10;
