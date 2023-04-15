@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../../contexts/Context";
 import { Container } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,7 +28,7 @@ export const SignUpForm = () => {
 
   const handleGoogleSignIn = () => {
     if (isMobile) {
-      window.location.href = "https://solariummovies.netlify.app/login"
+      window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true";
     } else {
       signInWithPopup(auth, googleProvider)
         .then((result) => {
@@ -55,6 +55,15 @@ export const SignUpForm = () => {
         );
       });
   };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const autoLogin = urlParams.get("autoLogin");
+
+    if (autoLogin === "true") {
+      handleGoogleSignIn();
+    }
+  }, []);
 
   const validatePassword = (password: string) => {
     const minLength = 10;

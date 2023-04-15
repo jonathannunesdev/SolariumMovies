@@ -56,6 +56,15 @@ export const SignInForm = () => {
     return true;
   };
 
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const autoLogin = urlParams.get("autoLogin");
+
+    if (autoLogin === "true") {
+      handleGoogleSignIn();
+    }
+  }, []);
+
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -130,7 +139,7 @@ export const SignInForm = () => {
     const provider = new GoogleAuthProvider();
   
     if (isMobile) {
-      window.location.href = "https://solariummovies.netlify.app/login"
+      window.location.href = "https://solariummovies.netlify.app/login?autoLogin=true";
     } else {
       try {
         const result = await signInWithPopup(auth, provider);
