@@ -249,6 +249,7 @@ export const Container = styled.div<{ theme: themeType }>`
         transition: all 0.3s ease-in-out;
         padding: 10px 0;
         margin: 0;
+        text-align: left;
       }
 
       h2{

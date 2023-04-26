@@ -10,6 +10,7 @@ Este é um projeto autoral de um aplicativo web para busca e visualização de i
 - Context API
 - Styled Components
 - Responsividade
+- Firebase
 
 ## Processo:
 O objetivo principal do projeto foi praticar o desenvolvimento de aplicações web utilizando React e suas ferramentas, além de trabalhar com TypeScript e Context API para gerenciamento de estado. Também foi utilizado Axios para fazer requisições às APIs de filmes e séries, e Styled Components para estilização dos componentes.
@@ -52,13 +53,14 @@ Contribuições são bem-vindas! Se você tiver alguma ideia para melhorar o pro
 ## Project Description:
 This is an authorial project for a web application to search and view information about movies, series and people involved in the production. Features include searching for movies, series and people, getting information about releases, quality assessments and ratings, as well as getting to know the entire cast and their work. The site allows you to switch between dark and light themes, and allows you to save movies, series and people in favorites. The project was developed using the following technologies:
 
-React
-React Router
-TypeScript
-Axios
-Context API
-Styled Components
-Responsiveness
+- React
+- React Router
+- TypeScript
+- Axios
+- Context API
+- Styled Components
+- Responsiveness
+- Firebase
 
 ## Process:
 The main goal of the project was to practice web application development using React and its tools, as well as working with TypeScript and Context API for state management. Axios was also used to make requests to movie and series APIs, and Styled Components were used for component styling.

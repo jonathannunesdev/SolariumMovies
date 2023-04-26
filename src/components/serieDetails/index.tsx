@@ -166,10 +166,30 @@ export const SerieDetails = ({ serieData, trailerData, castData }: Props) => {
               )}
               {serieData.watchProviders.results.BR?.flatrate ? (
                 <>
-                  <strong>Disponível em:</strong>
+                  <strong>Disponível para assinantes:</strong>
                   <ul className="providers--area">
                     {serieData.watchProviders.results.BR &&
                       serieData?.watchProviders.results.BR?.flatrate?.map(
+                        (item, index) => (
+                          <li key={index}>
+                            <img
+                              src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                              alt={item.provider_name}
+                            />
+                          </li>
+                        )
+                      )}
+                  </ul>
+                </>
+              ) : (
+                ""
+              )}
+              {serieData.watchProviders.results.BR?.rent ? (
+                <>
+                  <strong>Disponível para aluguel:</strong>
+                  <ul className="providers--area">
+                    {serieData.watchProviders.results.BR &&
+                      serieData?.watchProviders.results.BR?.rent?.map(
                         (item, index) => (
                           <li key={index}>
                             <img

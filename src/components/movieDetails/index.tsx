@@ -161,7 +161,7 @@ export const MovieDetails = ({ movieData, trailerData, castData }: Props) => {
               </span>
               {movieData.watchProviders.results.BR?.flatrate ? (
                 <>
-                  <strong>Disponível em:</strong>
+                  <strong>Disponível para assinantes:</strong>
                   <ul className="providers--area">
                     {movieData?.watchProviders.results.BR?.flatrate?.map(
                       (item, index) => (
@@ -177,6 +177,25 @@ export const MovieDetails = ({ movieData, trailerData, castData }: Props) => {
                 </>
               ) : (
                 ""
+              )}
+              {movieData.watchProviders.results.BR?.rent ? (
+                <>
+                <strong>Disponível para aluguel:</strong>
+                <ul className="providers--area">
+                {movieData?.watchProviders.results.BR?.rent?.map(
+                  (item, index) => (
+                    <li key={index}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                        alt={item.provider_name}
+                      />
+                    </li>
+                  )
+                )}
+              </ul>
+            </>
+          ) : (
+            ""
               )}
             </div>
             <div className="favorite">
